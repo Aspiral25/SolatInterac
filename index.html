@@ -2,25 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Solat Interac</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolatInterac Documentation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    nav {
+      width: 250px;
+      height: 100vh;
+      background: #222;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+    }
+    nav h2 {
+      margin-top: 0;
+    }
+    nav a {
+      display: block;
+      color: #ddd;
+      text-decoration: none;
+      margin: 8px 0;
+    }
+    nav a:hover {
+      color: white;
+    }
+    main {
+      margin-left: 250px;
+      padding: 20px;
+      flex: 1;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Solat Interac</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="docs.html">Docs</a>
-      <a href="https://github.com/Aspiral25/SolatInterac">GitHub</a>
-    </nav>
-  </header>
+  <nav>
+    <h2>Docs Menu</h2>
+    <a href="#intro">Introduction</a>
+    <a href="#install">Installation</a>
+    <a href="#usage">Usage</a>
+    <a href="#faq">FAQ</a>
+  </nav>
   <main>
-    <h2>Welcome to Solat Interac</h2>
-    <p>Your interactive prayer display system for TV screens.</p>
-    <a class="btn" href="docs.html">Get Started →</a>
+    <section id="intro">
+      <h1>Introduction</h1>
+      <p>Welcome to the SolatInterac documentation website.</p>
+    </section>
+    <section id="install">
+      <h1>Installation</h1>
+      <p>Step-by-step guide to install the software...</p>
+    </section>
+    <section id="usage">
+      <h1>Usage</h1>
+      <p>How to use SolatInterac on your system...</p>
+    </section>
+    <section id="faq">
+      <h1>FAQ</h1>
+      <p>Frequently Asked Questions...</p>
+    </section>
   </main>
-  <footer>
-    <p>© 2025 Solat Interac Project</p>
-  </footer>
 </body>
 </html>
