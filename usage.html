@@ -2,31 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Usage - Solat Interactive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage Guide — Solat Interactive</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>📺 Usage</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="setup.html">Setup</a>
-      <a href="usage.html">Usage</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html" class="active">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h2>How to Use</h2>
-    <p>After installation, launch the software. You can:</p>
-    <ul>
-      <li>View prayer times on TV display</li>
-      <li>Manage slideshow media</li>
-      <li>Configure ticker settings</li>
-    </ul>
-  </main>
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="usage.html" class="active">Usage Guide</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="slideshow.html">Image Manager</a></li>
+        <li><a href="themes.html">Themes</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </aside>
 
-  <footer>
-    <p>← <a href="index.html">Back to Home</a></p>
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Usage Guide</h1>
+        <p>Solat Interactive runs in <strong>fullscreen mode</strong> by default, displaying prayer times, a live countdown, Islamic events, and a rotating slideshow. This guide covers the main user experience and all available features.</p>
+
+        <h2 id="main-display">Main Display</h2>
+        <p>The display is divided into two primary zones:</p>
+        <ul>
+          <li><strong>Left panel:</strong> Rotating slideshow images with configurable transitions.</li>
+          <li><strong>Right panel:</strong> Prayer times grid, current clock, date display (Gregorian + Hijri), live countdown timer, and upcoming Islamic events.</li>
+        </ul>
+
+        <h3>Prayer Time Grid</h3>
+        <p>The right panel displays seven daily prayer periods:</p>
+        <table>
+          <thead>
+            <tr><th>Prayer</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fajr</td><td>Dawn prayer (Subuh)</td></tr>
+            <tr><td>Syuruk</td><td>Sunrise time</td></tr>
+            <tr><td>Dhuha</td><td>Late morning</td></tr>
+            <tr><td>Dhuhr</td><td>Midday prayer (Zohor)</td></tr>
+            <tr><td>Asr</td><td>Afternoon prayer (Asar)</td></tr>
+            <tr><td>Maghrib</td><td>Sunset prayer (Maghrib)</td></tr>
+            <tr><td>Isha</td><td>Night prayer (Isyak)</td></tr>
+          </tbody>
+        </table>
+        <p>Times are fetched from the Malaysian JAKIM e-Solat API and cached locally. The current and next prayer are highlighted automatically.</p>
+
+        <h3>Countdown Timer &amp; Pre-Adhan Alert</h3>
+        <p>A live countdown shows the time remaining until the next prayer. Three minutes before prayer:</p>
+        <ul>
+          <li>The countdown begins <strong>pulsing</strong> with a color animation.</li>
+          <li>A configurable <strong>pre-Adhan alert</strong> triggers at the specified lead time (default: 10 minutes).</li>
+          <li>At the exact prayer time, the full-screen <strong>Adhan sequence</strong> begins.</li>
+        </ul>
+
+        <h2 id="iqamah-sequence">Iqamah Sequence</h2>
+        <p>When a prayer time is reached, the app enters a three-stage sequence:</p>
+        <ol>
+          <li><strong>Adhan Phase:</strong> A full-screen Adhan GIF displays for a configurable duration.</li>
+          <li><strong>Iqamah Countdown:</strong> After a delay, an animated overlay fades in showing an Iqamah countdown (MM:SS). The duration is set per-prayer.</li>
+          <li><strong>SOLAT Alert:</strong> When the countdown reaches zero, a glow-style <strong>"SOLAT"</strong> announcement screen appears and holds for a configurable final delay.</li>
+        </ol>
+        <p>Audio (Adhan and Iqamah) plays automatically during these phases at the configured volume level.</p>
+
+        <h2 id="slideshow">Slideshow</h2>
+        <p>The left panel continuously rotates through images placed in the <code>slideshow_images/</code> folder. Transition effects are configurable:</p>
+        <ul>
+          <li><strong>Fade</strong> — smooth opacity transition (recommended).</li>
+          <li><strong>Slide</strong> — horizontal movement between images.</li>
+          <li><strong>None</strong> — instant cut with no animation.</li>
+        </ul>
+        <p>See the <a href="slideshow.html">Image Manager</a> docs for details on uploading and managing images remotely.</p>
+
+        <h2 id="events">Islamic Events</h2>
+        <p>The display shows upcoming Islamic and Hijri calendar events with a countdown in days. Events are defined in <code>events.json</code> and can be customized by the administrator.</p>
+
+        <h2 id="keyboard">Keyboard Controls</h2>
+        <table>
+          <thead>
+            <tr><th>Key</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>F11</code></td><td>Toggle fullscreen mode on/off.</td></tr>
+            <tr><td><code>Esc</code></td><td>Exit fullscreen.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="alert alert-warning">
+          <span class="alert-icon">⚠️</span>
+          <span>In fullscreen mode, the <strong>Admin</strong> and <strong>Fullscreen</strong> interface buttons are hidden for a cleaner display. Press <code>F11</code> to reveal the control bar.</span>
+        </div>
+
+        <h2 id="dates">Date Display</h2>
+        <p>The current date is shown in two formats:</p>
+        <ul>
+          <li><strong>Gregorian date</strong> in the selected locale format.</li>
+          <li><strong>Hijri date</strong> parsed from the JAKIM API response.</li>
+        </ul>
+        <p>The time format (12-hour AM/PM or 24-hour) is configurable in the Admin Panel.</p>
+
+        <p>Next: Learn about the <a href="admin.html">Admin Panel</a> or return to <a href="index.html">Home</a>.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html" class="active">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
