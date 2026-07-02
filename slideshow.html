@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Manager — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="slideshow.html" class="active">Image Manager</a></li>
+        <li><a href="themes.html">Themes</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Image Manager</h1>
+        <p>Solat Interactive includes an embedded <strong>Flask web server</strong> that lets administrators upload, preview, and delete slideshow images from any device on the local network — no file transfers or USB drives needed.</p>
+
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ️</span>
+          <span>The web uploader runs on port <strong>5001</strong> and is accessible when the main application is running.</span>
+        </div>
+
+        <h2 id="accessing">Accessing the Uploader</h2>
+        <p>To reach the image manager from a phone, tablet, or laptop:</p>
+        <ol>
+          <li>Make sure the host PC is running Solat Interactive.</li>
+          <li>Connect your device to the same WiFi hotspot as the host PC.</li>
+          <li>Open the <strong>Admin Panel</strong> on the display. Note the <strong>local IP and port</strong> shown (e.g., <code>http://192.168.43.128:5001</code>).</li>
+          <li>On your device's browser, navigate to that URL.</li>
+          <li>Log in with the admin password (<code>123</code> by default).</li>
+        </ol>
+
+        <h2 id="features">Uploader Features</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>⬆️ Upload Images</h3>
+            <p>Upload PNG, JPG, or JPEG files directly from your phone or computer. The images are copied immediately into the slideshow folder.</p>
+          </div>
+          <div class="feature-card">
+            <h3>👁️ Preview Thumbnails</h3>
+            <p>View recent uploads in a thumbnail grid before committing. Quickly identify and remove duplicates.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🗑️ Delete Images</h3>
+            <p>Remove unwanted images directly from the browser. Deletions take effect on the display within the next slideshow cycle.</p>
+          </div>
+        </div>
+
+        <h2 id="supported-formats">Supported Image Formats</h2>
+        <p>The slideshow engine accepts the following formats:</p>
+        <ul>
+          <li><strong>PNG</strong> — recommended for transparency and sharp edges.</li>
+          <li><strong>JPG / JPEG</strong> — best for photographs and high-resolution images.</li>
+        </ul>
+        <p>GIF is supported for the Adhan animation overlay only, not for standard slides.</p>
+
+        <div class="alert alert-warning">
+          <span class="alert-icon">⚠️</span>
+          <span>Very large images may cause performance issues on lower-powered display PCs. Resize images to match or exceed the display resolution before uploading.</span>
+        </div>
+
+        <h2 id="slots">Slideshow Display</h2>
+        <p>Images cycle on the left half of the main display. The appearance is controlled by:</p>
+        <ul>
+          <li><strong>Interval:</strong> How many seconds each image is displayed (Admin Panel setting).</li>
+          <li><strong>Transition:</strong> The animation between images — <code>fade</code>, <code>slide</code>, or <code>none</code>.</li>
+        </ul>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+
+        <div class="card">
+          <h4>I cannot access the uploader from my phone</h4>
+          <p>Ensure your phone is connected to the same WiFi hotspot as the host PC. Verify port 5001 is not blocked by Windows Firewall. Check that the host IP shown in the Admin Panel matches your network segment.</p>
+        </div>
+
+        <div class="card">
+          <h4>Uploaded images do not appear on the display</h4>
+          <p>Images appear on the next slideshow cycle. If they never appear, confirm the files were uploaded to the correct <code>slideshow_images/</code> folder and that the file format is supported.</p>
+        </div>
+
+        <div class="card">
+          <h4>The uploader shows "Login Failed"</h4>
+          <p>Double-check the admin password. If it was changed recently, update all stored credentials accordingly.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

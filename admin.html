@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+        <li><a href="admin.html" class="active">Admin Panel</a></li>
+        <li><a href="slideshow.html">Image Manager</a></li>
+        <li><a href="themes.html">Themes</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Admin Panel</h1>
+        <p>The <strong>Admin Panel</strong> (<code>AdminDialog</code>) provides a password-protected interface for surau administrators to configure, test, and manage all aspects of Solat Interactive.</p>
+
+        <div class="alert alert-warning">
+          <span class="alert-icon">🔒</span>
+          <span><strong>Security Note:</strong> The default admin password is <code>123</code>. Change it immediately after the first launch to prevent unauthorized access.</span>
+        </div>
+
+        <h2 id="opening">Opening the Admin Panel</h2>
+        <p>From the main display, click the <strong>Admin</strong> button (hidden in fullscreen mode — press <code>F11</code> to reveal it). Enter the admin password to unlock the dialog.</p>
+
+        <h2 id="sections">Panel Sections</h2>
+
+        <h3 id="settings">General Settings</h3>
+        <p>Configure high-level display preferences:</p>
+        <ul>
+          <li><strong>Theme:</strong> Select from six built-in themes or enable auto-cycle.</li>
+          <li><strong>Time Format:</strong> Toggle between 12-hour (AM/PM) and 24-hour formats.</li>
+          <li><strong>Pre-Adhan Alert:</strong> Set the lead time (in minutes) for an alert before prayer time.</li>
+          <li><strong>Volume:</strong> Adjust the master volume for Adhan and Iqamah playback.</li>
+          <li><strong>Admin Password:</strong> Change the panel password from the default.</li>
+          <li><strong>Developer Password:</strong> Set or change the developer-mode password.</li>
+        </ul>
+
+        <h3 id="timing">Timing &amp; Iqamah Configuration</h3>
+        <p>Fine-tune prayer alert timing per period:</p>
+        <table>
+          <thead>
+            <tr><th>Setting</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>iqamah_delays</code></td><td>Per-prayer delay (seconds) between Adhan audio and the Iqamah countdown overlay.</td></tr>
+            <tr><td><code>adhan_image_delay</code></td><td>Duration (seconds) the full-screen Adhan GIF is shown.</td></tr>
+            <tr><td><code>iqamah_entry_delay</code></td><td>Delay (seconds) after the Adhan GIF hides before the Iqamah overlay fades in.</td></tr>
+            <tr><td><code>final_iqamah_delay</code></td><td>Duration (seconds) the "SOLAT" glow screen displays after the countdown reaches zero.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="slideshow-config">Slideshow Configuration</h3>
+        <p>Control the image rotation behavior:</p>
+        <ul>
+          <li><strong>Interval:</strong> Seconds between image transitions.</li>
+          <li><strong>Effect:</strong> Choose between <code>fade</code>, <code>slide</code>, or <code>none</code>.</li>
+        </ul>
+
+        <h3 id="api-jakim">JAKIM API &amp; Zone</h3>
+        <p>Manage the data source for prayer times:</p>
+        <ul>
+          <li><strong>Zone:</strong> The Malaysian e-Solat zone code (e.g., <code>PNG01</code> for Perak).</li>
+          <li><strong>API Endpoint:</strong> The JAKIM e-Solat API URL. Developer mode allows direct editing.</li>
+        </ul>
+        <p>If times seem incorrect, verify the zone and re-fetch the annual data.</p>
+
+        <h3 id="license">License &amp; Device Binding</h3>
+        <p>The application locks to the Windows hardware UUID of the machine it first runs on. Administrators can:</p>
+        <ul>
+          <li><strong>View</strong> the currently bound UUID and device name.</li>
+          <li><strong>Unbind</strong> the current device (requires admin authorization).</li>
+          <li><strong>Bind</strong> to a new device by entering or selecting its UUID.</li>
+        </ul>
+
+        <h3 id="testing">Testing &amp; Simulation</h3>
+        <p>The Admin Panel includes a <strong>time simulation engine</strong> that lets administrators test the entire alert flow without waiting for real time:</p>
+        <ol>
+          <li>Enter a target prayer time or select a pre-canned scenario.</li>
+          <li>Click <strong>Simulate</strong> to offset the internal clock.</li>
+          <li>Observe the countdown, Adhan GIF, Iqamah overlay, and SOLAT glow screens.</li>
+        </ol>
+        <p>This is useful for verifying speaker wiring, volume levels, and animation timing before the live system goes into daily production.</p>
+
+        <div class="alert alert-success">
+          <span class="alert-icon">💡</span>
+          <span><strong>Tip:</strong> Use the built-in <strong>Test Adhan</strong> and <strong>Test Iqamah</strong> buttons to quickly verify audio output and speaker configuration.</span>
+        </div>
+
+        <h2 id="developer-mode">Developer Mode</h2>
+        <p>A password-protected <strong>Developer Mode</strong> unlocks advanced capabilities:</p>
+        <ul>
+          <li>Direct editing of the API endpoint URL.</li>
+          <li>Manual trigger for fetching and rebuilding annual prayer times.</li>
+          <li>Advanced diagnostics and internal state inspection.</li>
+        </ul>
+        <p>Developer mode is intended for troubleshooting and development purposes only.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

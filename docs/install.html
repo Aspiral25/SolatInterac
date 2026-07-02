@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html">Usage Guide</a>
+        <a href="../docs.html">Documentation</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="intro.html">Introduction</a></li>
+        <li><a href="install.html" class="active">Installation</a></li>
+        <li><a href="../usage.html">Usage Guide</a></li>
+      </ul>
+      <span class="sidebar-label">More</span>
+      <ul class="sidebar-nav">
+        <li><a href="../getting-started.html">Getting Started</a></li>
+        <li><a href="../usage.html">Features</a></li>
+        <li><a href="../admin.html">Admin Panel</a></li>
+        <li><a href="../slideshow.html">Image Manager</a></li>
+        <li><a href="../themes.html">Themes</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Installation</h1>
+        <p>This page provides detailed installation instructions and an overview of the dependencies and first-run behavior for Solat Interactive.</p>
+
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ️</span>
+          <span>If you haven't already, review the <a href="../getting-started.html">Getting Started</a> guide for a quicker setup walkthrough.</span>
+        </div>
+
+        <h2 id="requirements">System Requirements</h2>
+        <ul>
+          <li><strong>OS:</strong> Windows 10 / 11</li>
+          <li><strong>RAM:</strong> 4 GB minimum (8 GB recommended)</li>
+          <li><strong>Storage:</strong> 500 MB free space</li>
+          <li><strong>Audio:</strong> Speaker or audio output for Adhan/Iqamah</li>
+          <li><strong>Internet:</strong> Required on first launch to fetch JAKIM prayer times</li>
+          <li><strong>Network:</strong> Ad-Hoc WiFi hotspot for local image uploader (optional but recommended)</li>
+        </ul>
+
+        <h2 id="executable">Portable Executable</h2>
+        <p>The simplest installation path uses the pre-built <code>.exe</code>:</p>
+        <ol>
+          <li>Download the latest release from <a href="https://github.com/Aspiral25/SolatInterac/releases" target="_blank">GitHub Releases</a>.</li>
+          <li>Extract the archive to a secure folder (e.g., <code>C:\Program Files\SolatInteractive\</code>).</li>
+          <li>Run <code>SolatInterac.exe</code>.</li>
+        </ol>
+
+        <h2 id="source">Build from Source</h2>
+        <p>For development or customization:</p>
+        <pre><code>git clone https://github.com/Aspiral25/SolatInterac.git
+cd SolatInterac
+
+python -m venv venv
+.\venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python solah.py</code></pre>
+
+        <div class="alert alert-warning">
+          <span class="alert-icon">⚠️</span>
+          <span><strong>Default admin password:</strong> <code>123</code>. Change this immediately after first launch via the Admin Panel.</span>
+        </div>
+
+        <h2 id="packaging">Packaging with PyInstaller</h2>
+        <p>The build configuration is stored in <code>solah.spec</code>. To produce a fresh executable:</p>
+        <pre><code>pyinstaller solah.spec</code></pre>
+        <p>The output executable is named <code>MasjidInterac.exe</code>.</p>
+
+        <h2 id="folders">Directory Layout</h2>
+        <p>On first run, the app creates the following structure:</p>
+        <pre><code>%APPDATA%\SolatDisplay\
+├── prayer_times_config.json
+├── annual_prayer_times.json
+├── events.json
+├── solat.log
+├── audio\
+│   ├── adhan.mp3
+│   └── iqamah.mp3
+├── slideshow_images\
+│   └── (your uploaded images)
+└── (optional: adhan.gif, adhan.jpg)</code></pre>
+
+        <h2 id="dependencies">Dependencies Documentation</h2>
+        <table>
+          <thead>
+            <tr><th>Package</th><th>Version Reference</th><th>Responsibility</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>PyQt6</code></td><td>6.9.x</td><td>Desktop GUI, timers, multimedia</td></tr>
+            <tr><td><code>Flask</code></td><td>latest</td><td>Embedded web image uploader</td></tr>
+            <tr><td><code>requests</code></td><td>2.32.x</td><td>JAKIM API communication</td></tr>
+            <tr><td><code>psutil</code></td><td>latest</td><td>Network interface detection</td></tr>
+            <tr><td><code>pillow</code></td><td>latest</td><td>Flip-clock image generation</td></tr>
+            <tr><td><code>pyinstaller</code></td><td>latest</td><td>Executable packaging</td></tr>
+          </tbody>
+        </table>
+
+        <div class="alert alert-success">
+          <span class="alert-icon">✅</span>
+          <span>After successful installation, jump to the <a href="usage.html">Usage Guide</a> to learn how to operate the display.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html">Usage Guide</a>
+        <a href="../docs.html">Docs</a>
+        <a href="../faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -3,74 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SolatInterac Documentation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-    }
-    nav {
-      width: 250px;
-      height: 100vh;
-      background: #222;
-      color: white;
-      padding: 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-    }
-    nav h2 {
-      margin-top: 0;
-    }
-    nav a {
-      display: block;
-      color: #ddd;
-      text-decoration: none;
-      margin: 8px 0;
-    }
-    nav a:hover {
-      color: white;
-    }
-    main {
-      margin-left: 250px;
-      padding: 20px;
-      flex: 1;
-    }
-    section {
-      margin-bottom: 50px;
-    }
-    h1, h2 {
-      color: #333;
-    }
-  </style>
+  <meta name="description" content="Solat Interactive - Modern prayer time display system for surau, featuring live countdown, audio alerts, slideshow, and remote image management.">
+  <title>Solat Interactive — Professional Prayer Display System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <h2>Docs Menu</h2>
-    <a href="#intro">Introduction</a>
-    <a href="#install">Installation</a>
-    <a href="#usage">Usage</a>
-    <a href="#faq">FAQ</a>
-  </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section id="intro">
-      <h1>Introduction</h1>
-      <p>Welcome to the SolatInterac documentation website.</p>
-    </section>
-    <section id="install">
-      <h1>Installation</h1>
-      <p>Step-by-step guide to install the software...</p>
-    </section>
-    <section id="usage">
-      <h1>Usage</h1>
-      <p>How to use SolatInterac on your system...</p>
-    </section>
-    <section id="faq">
-      <h1>FAQ</h1>
-      <p>Frequently Asked Questions...</p>
+    <section class="landing">
+      <div class="landing-inner">
+        <span class="landing-badge">★ Licensed for Surau Al-Huda IPD BaratDaya</span>
+        <h1>Professional Prayer Time<br>Display System</h1>
+        <p class="subtitle">
+          A modern, fullscreen desktop application for displaying Muslim prayer times,
+          live countdowns, Adhan audio alerts, and dynamic slideshows — designed for surau
+          and mosque environments.
+        </p>
+        <div class="landing-actions">
+          <a href="getting-started.html" class="btn btn-primary">Quick Start Guide</a>
+          <a href="usage.html" class="btn btn-secondary">Explore Features</a>
+          <a href="docs.html" class="btn btn-secondary">View All Docs</a>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3><span class="feature-icon">⏰</span> Live Prayer Countdown</h3>
+            <p>Real-time countdown with pulsing animations 3 minutes before each prayer. Highlights current and upcoming prayers automatically.</p>
+          </div>
+          <div class="feature-card">
+            <h3><span class="feature-icon">🔊</span> Audio Alerts</h3>
+            <p>Automated Adhan and Iqamah playback with configurable per-prayer delays. Multi-stage Iqamah animation with full-screen visuals.</p>
+          </div>
+          <div class="feature-card">
+            <h3><span class="feature-icon">🖼️</span> Slideshow Manager</h3>
+            <p>Rotating image display with fade and slide transitions. A built-in web uploader lets admins manage media from any phone or laptop.</p>
+          </div>
+          <div class="feature-card">
+            <h3><span class="feature-icon">🎨</span> Themes & Customization</h3>
+            <p>Six built-in color themes with auto-cycle support. Configurable 12/24-hour time format, volume, and display timings.</p>
+          </div>
+          <div class="feature-card">
+            <h3><span class="feature-icon">⚙️</span> Admin Panel</h3>
+            <p>Password-protected admin dialog for simulation testing, speaker binding, settings management, and developer debugging tools.</p>
+          </div>
+          <div class="feature-card">
+            <h3><span class="feature-icon">📅</span> Islamic Calendar</h3>
+            <p>Displays both Gregorian and Hijri dates. Shows upcoming Islamic events with countdown days including Eid and Ramadan.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="usage.html">Usage</a>
+        <a href="setup.html">Setup</a>
+        <a href="docs.html">Docs</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

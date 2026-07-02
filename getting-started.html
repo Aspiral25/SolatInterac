@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html" class="active">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html" class="active">Getting Started</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="slideshow.html">Image Manager</a></li>
+        <li><a href="themes.html">Themes</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Getting Started</h1>
+        <p>This guide walks you through installing, configuring, and launching <strong>Solat Interactive</strong> on a Windows PC.</p>
+
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ️</span>
+          <span><strong>Note:</strong> Solat Interactive is built for <strong>Windows</strong> and uses PyQt6 for the desktop interface.</span>
+        </div>
+
+        <h2 id="requirements">System Requirements</h2>
+        <p>Before installing, ensure your machine meets the following requirements:</p>
+        <table>
+          <thead>
+            <tr><th>Requirement</th><th>Details</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Operating System</td><td>Windows 10 / 11</td></tr>
+            <tr><td>Memory</td><td>4 GB RAM minimum (8 GB recommended)</td></tr>
+            <tr><td>Display</td><td>Screen capable of running the app in fullscreen resolution</td></tr>
+            <tr><td>Audio</td><td>Speakers or audio output device for Adhan / Iqamah</td></tr>
+            <tr><td>Internet</td><td>Required on first run to fetch annual prayer times from JAKIM</td></tr>
+            <tr><td>Network</td><td>WiFi hotspot for local image uploader access (optional)</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="install">Installation</h2>
+        <p>There are two ways to install Solat Interactive: using the pre-built executable or running from source.</p>
+
+        <h3>Option A — Portable Executable (Recommended)</h3>
+        <ol>
+          <li>Download the latest <code>SolatInterac.exe</code> from the <a href="https://github.com/Aspiral25/SolatInterac/releases" target="_blank">GitHub Releases</a> page.</li>
+          <li>Create a new folder (e.g., <code>C:\Program Files\SolatInteractive</code>).</li>
+          <li>Copy the executable into that folder.</li>
+          <li>Double-click <code>SolatInterac.exe</code> to run.</li>
+        </ol>
+
+        <div class="alert alert-success">
+          <span class="alert-icon">⚠️</span>
+          <span><strong>Tip:</strong> When launching for the first time, the application will prompt for the administrator password. The default password is <code>123</code>.</span>
+        </div>
+
+        <h3>Option B — Run from Source</h3>
+        <p>If you want to modify the application or run the latest development version:</p>
+        <ol>
+          <li>Clone the repository:
+            <pre><code>git clone https://github.com/Aspiral25/SolatInterac.git
+cd SolatInterac</code></pre>
+          </li>
+          <li>Create a virtual environment:
+            <pre><code>python -m venv venv
+venv\Scripts\activate</code></pre>
+          </li>
+          <li>Install dependencies:
+            <pre><code>pip install -r requirements.txt</code></pre>
+          </li>
+          <li>Launch the application:
+            <pre><code>python solah.py</code></pre>
+          </li>
+        </ol>
+
+        <h2 id="dependencies">Dependencies</h2>
+        <p>Key packages used by the application:</p>
+        <table>
+          <thead>
+            <tr><th>Package</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>PyQt6</code></td><td>Desktop GUI framework</td></tr>
+            <tr><td><code>Flask</code></td><td>Embedded web server for image uploader</td></tr>
+            <tr><td><code>requests</code></td><td>Fetching prayer times from JAKIM API</td></tr>
+            <tr><td><code>psutil</code></td><td>Network interface detection for hotspot status</td></tr>
+            <tr><td><code>pillow</code></td><td>Image processing for flip-clock graphics</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="first-run">First-Run Behavior</h2>
+        <p>On the very first launch, Solat Interactive will automatically:</p>
+        <ol>
+          <li>Create a <code>USER_DATA_DIR</code> under <code>%APPDATA%\SolatDisplay</code> for persistent storage.</li>
+          <li>Copy <code>adhan.mp3</code> and <code>iqamah.mp3</code> from bundled assets into the <code>audio/</code> folder.</li>
+          <li>Create a <code>slideshow_images/</code> directory for image storage.</li>
+          <li>Copy <code>events.json</code> (Islamic calendar events) from <code>assets/</code> if not present.</li>
+          <li>Fetch annual prayer times from the JAKIM e-Solat API. <span class="badge badge-warning">Requires internet connection</span></li>
+          <li>Read the stored Windows hardware UUID to enforce device-specific licensing.</li>
+          <li>Start the embedded Flask web server on port <code>5001</code>.</li>
+        </ol>
+
+        <h2 id="hotspot">Configuring Mobile Hotspot</h2>
+        <p>The image uploader works best when the host PC shares its mobile hotspot. This allows network devices to reach <code>http://&lt;IP&gt;:5001</code>.</p>
+        <ol>
+          <li>Open <strong>Settings &rarr; Network &amp; Internet &rarr; Mobile hotspot</strong> on Windows.</li>
+          <li>Turn on the hotspot and note the <strong>IPv4 address</strong>.</li>
+          <li>Open the Admin Panel (<strong>Admin</strong> button on the display) and verify the hotspot status.</li>
+          <li>On your phone, connect to the hotspot and navigate to the displayed URL.</li>
+        </ol>
+
+        <p>Ready to use the application? Continue to the <a href="usage.html">Usage Guide</a>.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

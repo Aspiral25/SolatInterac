@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="slideshow.html">Image Manager</a></li>
+        <li><a href="themes.html">Themes</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>FAQ</h1>
+        <p>Frequently asked questions about Solat Interactive. If your question isn't answered here, please open an issue on GitHub.</p>
+
+        <h2 id="general">General</h2>
+
+        <div class="card">
+          <h4>What is Solat Interactive?</h4>
+          <p>Solat Interactive is a desktop application designed for screens at surau and mosques. It automatically displays prayer times from the Malaysian JAKIM API, shows a live countdown, plays Adhan and Iqamah audio at the correct times, and rotates a slideshow of images.</p>
+        </div>
+
+        <div class="card">
+          <h4>Who is it licensed for?</h4>
+          <p>The application is licensed for <strong>Surau Al-Huda IPD BaratDaya</strong>. Device binding ensures it only runs on authorized machines.</p>
+        </div>
+
+        <div class="card">
+          <h4>Can I customize the theme?</h4>
+          <p>Yes. Six built-in themes are available, and you can enable auto-cycle to rotate through them daily. See the <a href="themes.html">Themes</a> page for details.</p>
+        </div>
+
+        <h2 id="installation">Installation</h2>
+
+        <div class="card">
+          <h4>How do I install it?</h4>
+          <p>Download the latest <code>SolatInterac.exe</code> from the <a href="https://github.com/Aspiral25/SolatInterac/releases" target="_blank">Releases</a> page, extract it, and run the executable. No installer is required.</p>
+        </div>
+
+        <div class="card">
+          <h4>Is an internet connection required?</h4>
+          <p>Only on the <strong>first run</strong> to fetch annual prayer times from the JAKIM e-Solat API. After that, times are cached locally.</p>
+        </div>
+
+        <div class="card">
+          <h4>What is the default admin password?</h4>
+          <p>The default password is <code>123</code>. Change it immediately after first launch via the Admin Panel.</p>
+        </div>
+
+        <h2 id="operation">Operation</h2>
+
+        <div class="card">
+          <h4>How do I exit fullscreen?</h4>
+          <p>Press <code>F11</code> to toggle fullscreen, or press <code>Esc</code> to exit fullscreen directly.</p>
+        </div>
+
+        <div class="card">
+          <h4>The Admin and Fullscreen buttons are missing. Why?</h4>
+          <p>These buttons intentionally hide in fullscreen mode for a clean display. Press <code>F11</code> to reveal the control bar.</p>
+        </div>
+
+        <div class="card">
+          <h4>How do I upload images from my phone?</h4>
+          <p>Connect your phone to the same WiFi hotspot as the host PC. The Admin Panel displays the uploader URL (e.g., <code>http://192.168.x.x:5001</code>). Navigate to it, log in, and upload images.</p>
+        </div>
+
+        <div class="card">
+          <h4>Prayer times are wrong. How do I fix?</h4>
+          <p>Verify the <code>zone</code> setting in Admin Panel matches your JAKIM zone code (e.g., <code>PNG01</code> for Perak). You can also force a re-fetch of the annual prayer data.</p>
+        </div>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+
+        <div class="card">
+          <h4>No audio plays at prayer time</h4>
+          <p>Check that the system volume is unmuted, the <strong>Adhan alert</strong> option is enabled in the Admin Panel, and that <code>adhan.mp3</code> and <code>iqamah.mp3</code> exist in the <code>audio/</code> folder.</p>
+        </div>
+
+        <div class="card">
+          <h4>The image uploader is unreachable</h4>
+          <p>Ensure the host PC's mobile hotspot is active and the device is connected to it. Confirm port <code>5001</code> is not blocked by Windows Firewall.</p>
+        </div>
+
+        <div class="card">
+          <h4>The app says "Invalid Device"</h4>
+          <p>The application is locked to the original Windows hardware UUID. An administrator must use the <strong>License</strong> section in the Admin Panel to bind a new device if hardware has changed.</p>
+        </div>
+
+        <div class="card">
+          <h4>Slideshow images are not showing</h4>
+          <p>Confirm that PNG/JPG files are placed in the <code>slideshow_images/</code> directory. A web uploader is available at <code>http://&lt;IP&gt;:5001</code> for convenience.</p>
+        </div>
+
+        <div class="card">
+          <h4>The application crashes on startup</h4>
+          <p>Check <code>solat.log</code> in the data directory for details. Common causes include missing audio files, corrupted configuration JSON, or a broken JAKIM API response.</p>
+        </div>
+
+        <h2 id="dev">Developer / Advanced</h2>
+
+        <div class="card">
+          <h4>How do I enable developer mode?</h4>
+          <p>Enter the developer password in the Admin Panel to unlock advanced options: direct API endpoint editing, manual annual prayer time fetching, and other debugging utilities.</p>
+        </div>
+
+        <div class="card">
+          <h4>Can I contribute?</h4>
+          <p>Yes. Fork the repository, create a feature branch, and submit a pull request. Please follow the existing code style and run any provided tests before submitting.</p>
+        </div>
+
+        <p style="margin-top: 2rem;">Still need help? Visit our <a href="https://github.com/Aspiral25/SolatInterac" target="_blank">GitHub repository</a> to open an issue.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html" class="active">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

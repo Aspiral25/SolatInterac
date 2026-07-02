@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Themes — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="slideshow.html">Image Manager</a></li>
+        <li><a href="themes.html" class="active">Themes</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Themes &amp; Customization</h1>
+        <p>Solat Interactive supports a powerful <strong>theme system</strong> that controls the color palette of the entire interface. Administrators can choose from built-in themes or enable automatic daily cycling.</p>
+
+        <h2 id="built-in-themes">Built-in Themes</h2>
+        <p>Six professionally designed themes are included out of the box:</p>
+        <table>
+          <thead>
+            <tr><th>Theme</th><th>Mood</th><th>Best For</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>redblue</code></td>
+              <td>Bold contrast</td>
+              <td>High-visibility displays with strong color separation</td>
+            </tr>
+            <tr>
+              <td><code>blueorange</code></td>
+              <td>Warm + cool balance</td>
+              <td>General purpose, easy on the eyes</td>
+            </tr>
+            <tr>
+              <td><code>purple</code></td>
+              <td>Elegant & refined</td>
+              <td>Traditional and dignified environments</td>
+            </tr>
+            <tr>
+              <td><code>coldgreen</code></td>
+              <td>Calming green tones</td>
+              <td>Quiet, meditative spaces</td>
+            </tr>
+            <tr>
+              <td><code>pastel</code></td>
+              <td>Soft and light</td>
+              <td>Bright rooms, daytime readability</td>
+            </tr>
+            <tr>
+              <td><code>brown</code></td>
+              <td>Warm and earthy</td>
+              <td>Wooden interiors, traditional décor</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="auto-cycle">Auto-Cycle</h2>
+        <p>Automatically rotate through themes on a daily basis. This is useful for:</p>
+        <ul>
+          <li>Keeping the display visually interesting over long periods.</li>
+          <li>Matching the theme to different prayer times or Islamic months.</li>
+        </ul>
+        <p>Auto-cycle is enabled via the <a href="admin.html">Admin Panel</a>.</p>
+
+        <h2 id="customizing">Configuration Persistence</h2>
+        <p>The active theme and auto-cycle setting are saved in <code>prayer_times_config.json</code> under the <code>theme</code> and <code>auto_cycle_theme</code> fields. Changes take effect immediately upon saving from the Admin Panel.</p>
+
+        <h2 id="time-format">Time Format</h2>
+        <p>Beyond themes, the display supports two time formats:</p>
+        <ul>
+          <li><strong>12-hour (AM/PM):</strong> Common for everyday users.</li>
+          <li><strong>24-hour:</strong> Standard military/international format.</li>
+        </ul>
+        <p>Set globally via the Admin Panel. The format applies to all timestamps on the display.</p>
+
+        <h2 id="design-notes">Design Notes</h2>
+        <p>Themes are defined as Python dictionaries in <code>config.py</code> with color keys for backgrounds, prayer panels, titles, and borders. Each theme is designed to maintain readibility of prayer times against the slideshow background. The countdown animation color is derived from the current theme's accent color.</p>
+
+        <div class="alert alert-success">
+          <span class="alert-icon">💡</span>
+          <span><strong>Tip:</strong> If your surau has specific brand colors, you can add a custom theme by extending the theme dictionary in <code>config.py</code>. See the Developer Mode in the <a href="admin.html">Admin Panel</a> for directions.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
