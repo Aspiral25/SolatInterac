@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage Guide — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html">Usage Guide</a>
+        <a href="../docs.html">Documentation</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="intro.html">Introduction</a></li>
+        <li><a href="install.html">Installation</a></li>
+        <li><a href="usage.html" class="active">Usage Guide</a></li>
+      </ul>
+      <span class="sidebar-label">More</span>
+      <ul class="sidebar-nav">
+        <li><a href="../getting-started.html">Getting Started</a></li>
+        <li><a href="../usage.html">Features</a></li>
+        <li><a href="../admin.html">Admin Panel</a></li>
+        <li><a href="../slideshow.html">Image Manager</a></li>
+        <li><a href="../themes.html">Themes</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Usage Guide</h1>
+        <p>This guide explains how to use Solat Interactive after installation. The application is designed to run <strong>unattended</strong> on a display screen, automatically managing prayer times, audio alerts, and visual content.</p>
+
+        <h2 id="viewers">For Viewers (Worshippers)</h2>
+        <p>The primary users — worshippers at the surau — interact with the application passively by viewing the display:</p>
+        <ul>
+          <li><strong>Prayer Times:</strong> A clean grid shows all seven daily prayer periods with exact times.</li>
+          <li><strong>Countdown:</strong> A live countdown highlights the time until the next prayer, pulsing 3 minutes before.</li>
+          <li><strong>Slideshow:</strong> Beautiful images rotate on the left side of the screen.</li>
+          <li><strong>Dates & Events:</strong> Gregorian and Hijri dates are displayed alongside upcoming Islamic event countdowns.</li>
+        </ul>
+        <p>No input is required from viewers. The application runs continuously and handles everything automatically.</p>
+
+        <h2 id="admins">For Administrators</h2>
+        <p>Surau administrators can access the <strong>Admin Panel</strong> by pressing the <strong>Admin</strong> button on the interface or opening the dialog. Default password: <code>123</code>.</p>
+
+        <h3 id="admin-capabilities">What the Admin Can Do</h3>
+        <p>From the Admin Panel, administrators have full control over:</p>
+        <ul>
+          <li><strong>Display Settings:</strong> Theme selection (or auto-cycle), 12/24-hour time format, volume control.</li>
+          <li><strong>Slideshow:</strong> Transition effect (fade, slide, none) and display interval.</li>
+          <li><strong>Iqamah Delays:</strong> Per-prayer delay configuration (seconds between Adhan and Iqamah countdown start).</li>
+          <li><strong>Timing:</strong> Pre-Adhan alert lead time, Adhan GIF display duration, Iqamah entry delay, final SOLAT hold time.</li>
+          <li><strong>Adhan Control:</strong> Enable/disable automated Adhan playback.</li>
+          <li><strong>License:</strong> Bind or unbind the application to a specific Windows PC using hardware UUID.</li>
+          <li><strong>Testing:</strong> Simulate any prayer time to test alerts, countdowns, and overlays without waiting for real time.</li>
+          <li><strong>Audio Testing:</strong> Play Adhan and Iqamah sounds directly from the panel to verify volume and speaker configuration.</li>
+        </ul>
+
+        <h2 id="image-manager">Remote Image Management</h2>
+        <p>The app includes an embedded Flask web server (port 5001) that allows admins to upload and manage slideshow images from any device on the local network:</p>
+        <ol>
+          <li>Connect your phone or laptop to the surau's WiFi hotspot.</li>
+          <li>Navigate to <code>http://&lt;IP&gt;:5001</code> (the IP is shown in the Admin Panel).</li>
+          <li>Enter the password (<code>123</code> by default).</li>
+          <li>Upload images, preview thumbnails, and delete unwanted files.</li>
+        </ol>
+        <p>See the <a href="../slideshow.html">Image Manager</a> documentation for detailed instructions.</p>
+
+        <h2 id="themes">Customizing Themes</h2>
+        <p>Solat Interactive includes six built-in themes:</p>
+        <table>
+          <thead>
+            <tr><th>Theme</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>redblue</code></td><td>Classic red + blue contrast</td></tr>
+            <tr><td><code>blueorange</code></td><td>Blue and orange combination</td></tr>
+            <tr><td><code>purple</code></td><td>Elegant purple palette</td></tr>
+            <tr><td><code>coldgreen</code></td><td>Calming green tones</td></tr>
+            <tr><td><code>pastel</code></td><td>Soft pastel colors</td></tr>
+            <tr><td><code>brown</code></td><td>Warm brown scheme</td></tr>
+          </tbody>
+        </table>
+        <p>Administrators can select a theme manually or enable <strong>auto-cycle</strong> to rotate themes automatically each day.</p>
+        <p>See <a href="../themes.html">Themes</a> for more details.</p>
+
+        <h2 id="keyboard-controls">Keyboard Controls</h2>
+        <table>
+          <thead>
+            <tr><th>Key</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>F11</code></td><td>Toggle fullscreen on / off.</td></tr>
+            <tr><td><code>Esc</code></td><td>Exit fullscreen.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="alert alert-warning">
+          <span class="alert-icon">⚠️</span>
+          <span>In fullscreen mode, the Admin and Fullscreen control buttons are hidden. Press <code>F11</code> to reveal them.</span>
+        </div>
+
+        <div class="alert alert-success">
+          <span class="alert-icon">✅</span>
+          <span>For complete feature details and troubleshooting, see the <a href="../faq.html">FAQ</a> and <a href="../admin.html">Admin Panel</a> pages.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html" class="active">Usage Guide</a>
+        <a href="../docs.html">Docs</a>
+        <a href="../faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
