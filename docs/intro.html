@@ -2,23 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Introduction - Solat Interac</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction — Solat Interactive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Solat Interac Docs</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../docs.html">Docs</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html">Usage Guide</a>
+        <a href="intro.html" class="active">Introduction</a>
+        <a href="../docs.html">All Docs</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Introduction</h2>
-    <p>Solat Interac is an interactive TV display system for prayer times, slideshows, and more.</p>
-  </main>
-  <footer>
-    <p>© 2025 Solat Interac Project</p>
+
+  <div class="sidebar-layout">
+    <aside class="doc-sidebar">
+      <span class="sidebar-label">Documentation</span>
+      <ul class="sidebar-nav">
+        <li><a href="intro.html" class="active">Introduction</a></li>
+        <li><a href="install.html">Installation</a></li>
+        <li><a href="../usage.html">Usage Guide</a></li>
+      </ul>
+      <span class="sidebar-label">More</span>
+      <ul class="sidebar-nav">
+        <li><a href="../getting-started.html">Getting Started</a></li>
+        <li><a href="../usage.html">Features</a></li>
+        <li><a href="../admin.html">Admin Panel</a></li>
+        <li><a href="../slideshow.html">Image Manager</a></li>
+        <li><a href="../themes.html">Themes</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      <div class="doc-content">
+        <h1>Introduction</h1>
+        <p>Solat Interactive is a modern, fullscreen desktop application designed to display Muslim prayer times and related Islamic information on dedicated screens — typically installed on PCs or media devices at a <strong>surau</strong> (Malaysian prayer hall).</p>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🎯 Purpose & Audience</span>
+          </div>
+          <p>The application targets <strong>mosque and surau administrators</strong> and worshippers who need an automated, visually appealing display of prayer schedules, live countdowns, and audio/visual alerts (Adhan and Iqamah notifications). It eliminates the need for manual timetable updates by fetching official Malaysian prayer times directly from the JAKIM e-Solat API.</p>
+        </div>
+
+        <h2 id="key-features">Key Features</h2>
+        <div class="feature-grid" style="margin-top: 1.5rem;">
+          <div class="feature-card">
+            <h3>📺 Fullscreen Display</h3>
+            <p>Optimized for unattended TV or projector screens. Supports F11 fullscreen and auto-hides controls.</p>
+          </div>
+          <div class="feature-card">
+            <h3>⏰ Live Countdown</h3>
+            <p>Real-time countdown with pulsing animations 3 minutes before each prayer. Highlights current and upcoming prayers.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔊 Audio Alerts</h3>
+            <p>Automated Adhan at prayer time and Iqamah after configurable delays. Multi-stage Iqamah animation sequence.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🖼️ Slideshow</h3>
+            <p>Rotating images with fade and slide transitions. Web-based remote image uploader for phone/laptop management.</p>
+          </div>
+          <div class="feature-card">
+            <h3>📅 Islamic Calendar</h3>
+            <p>Shows both Gregorian and Hijri dates, plus upcoming Islamic events (Ramadan, Eid, etc.) with countdown days.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🎨 Theme System</h3>
+            <p>Six built-in themes with auto-cycle support. Full color customization via Admin Panel.</p>
+          </div>
+        </div>
+
+        <h2 id="technology">Technology Stack</h2>
+        <p>Solat Interactive is built on the following stack:</p>
+        <table>
+          <thead>
+            <tr><th>Layer</th><th>Technology</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Language</td><td>Python 3</td></tr>
+            <tr><td>GUI Framework</td><td>PyQt6</td></tr>
+            <tr><td>Web Server</td><td>Flask</td></tr>
+            <tr><td>Frontend</td><td>Jinja2 + Tailwind CSS (uploader)</td></tr>
+            <tr><td>Data Source</td><td>Malaysian JAKIM e-Solat API</td></tr>
+            <tr><td>Networking</td><td>psutil, socket</td></tr>
+            <tr><td>Audio</td><td>PyQt6.QtMultimedia</td></tr>
+            <tr><td>Packaging</td><td>PyInstaller</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="architecture">Architecture</h2>
+        <p>The application uses a <strong>client-server hybrid</strong> architecture on a single machine:</p>
+        <pre><code>┌──────────────────────────────────────────┐
+│            Main GUI (Main Thread)         │
+│            solah.py / solah_vJ1.py         │
+│  PyQt6 QMainWindow                        │
+│  Timers: Clock (1s), Data Reload (1h)     │
+│  Prayer logic, countdown, QMediaPlayer   │
+├────────────────┬─────────────────────────┤
+│ Admin Dialog   │  Background Flask Thread │
+│ (QDialog)      │  web_server.py           │
+│ Settings UI    │  Port 5001               │
+│ Simulation     │  Image upload/listing    │
+│ Hotspot status │                          │
+├────────────────┴─────────────────────────┤
+│        Persistent Storage (%APPDATA%)     │
+│  prayer_times_config.json, audio/,        │
+│  slideshow_images/, events.json           │
+└──────────────────────────────────────────┘</code></pre>
+
+        <h2 id="license">Licensing & Device Binding</h2>
+        <p>Solat Interactive uses <strong>Windows hardware UUID</strong> for per-machine licensing. On first run, the app binds to the current device. This prevents unauthorized use on other PCs without administrative reassignment.</p>
+        <p>Licensed for: <strong>Surau Al-Huda IPD BaratDaya</strong></p>
+
+        <div class="alert alert-info">
+          <span class="alert-icon">ℹ️</span>
+          <span>Explore the full documentation using the sidebar navigation, or jump straight to <a href="../getting-started.html">Getting Started</a> to install and run the application.</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../usage.html">Usage Guide</a>
+        <a href="../docs.html">Docs</a>
+        <a href="../faq.html">FAQ</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
