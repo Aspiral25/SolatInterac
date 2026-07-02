@@ -2,27 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Documentation - Solat Interac</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — Solat Interactive</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Solat Interac Docs</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="docs.html">Docs</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">★</span>
+        Solat Interactive
+      </a>
+      <nav class="header-nav">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html" class="active">Documentation</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://github.com/Aspiral25/SolatInterac" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Documentation</h2>
-    <ul>
-      <li><a href="docs/intro.html">Introduction</a></li>
-      <li><a href="docs/install.html">Installation</a></li>
-      <li><a href="docs/usage.html">Usage Guide</a></li>
-    </ul>
+
+  <main class="doc-main" style="padding: 3rem;">
+    <div class="doc-content" style="max-width: 900px;">
+      <h1>Documentation</h1>
+      <p>Complete documentation for the Solat Interactive application. Select a topic below to get started.</p>
+
+      <div class="feature-grid" style="margin-top: 2rem;">
+        <a href="getting-started.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">🚀</span> Getting Started</h3>
+          <p>Installation, system requirements, first-run behavior, and setup instructions.</p>
+        </a>
+        <a href="usage.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">📋</span> Usage Guide</h3>
+          <p>Display overview, prayer countdown, Iqamah sequence, slideshow, and keyboard controls.</p>
+        </a>
+        <a href="admin.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">⚙️</span> Admin Panel</h3>
+          <p>Settings, timing configuration, device binding, developer mode, and time simulation.</p>
+        </a>
+        <a href="slideshow.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">🖼️</span> Image Manager</h3>
+          <p>Remote web uploader for uploading, previewing, and deleting slideshow images.</p>
+        </a>
+        <a href="themes.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">🎨</span> Themes</h3>
+          <p>Built-in themes, auto-cycle, time format, and customization options.</p>
+        </a>
+        <a href="faq.html" class="feature-card" style="text-decoration: none;">
+          <h3><span class="feature-icon">❓</span> FAQ</h3>
+          <p>Common questions, troubleshooting tips, and answers for users and administrators.</p>
+        </a>
+      </div>
+
+      <h2 style="margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--color-border);">Docs Archived Section</h2>
+      <p>Older documentation sub-sections are also available:</p>
+      <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+        <li><a href="docs/intro.html">Introduction</a></li>
+        <li><a href="docs/install.html">Installation (detailed)</a></li>
+        <li><a href="docs/usage.html">Usage Guide (detailed)</a></li>
+      </ul>
+    </div>
   </main>
-  <footer>
-    <p>© 2025 Solat Interac Project</p>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© 2025 Solat Interactive Project</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="usage.html">Usage Guide</a>
+        <a href="docs.html" class="active">Docs</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
